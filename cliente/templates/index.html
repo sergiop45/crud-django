@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>teste home django</h1>
+
+    <ul>
+        {% for cliente in clientes %}
+        <li>{{cliente.id}} - {{ cliente.nome }} {{cliente.sobrenome}} </li>
+
+        {% endfor %}
+    </ul>
+
+
+    <form action={% url 'salvar' %} method="POST">
+        {% csrf_token %}
+        <input type="text" name="nome">
+        <input type="text" name="sobrenome">
+
+        <button>salvar</button>
+    </form>
+</body>
+</html>
