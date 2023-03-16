@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Update</title>
+</head>
+<body>
+
+    <form action="{% url 'update' cliente.id %}" method="post">
+        {% csrf_token %}
+        
+        <input type="text" value="{{cliente.nome}}" name="nome">
+        <input type="text" value="{{cliente.sobrenome}}" name="sobrenome">
+
+        <button>Editar</button>
+
+    </form>
+    
+    
+
+</body>
+</html>

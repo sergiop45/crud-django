@@ -11,13 +11,16 @@
 
     <ul>
         {% for cliente in clientes %}
-        <li>{{cliente.id}} - {{ cliente.nome }} {{cliente.sobrenome}} </li>
+        <li>{{cliente.id}} - {{ cliente.nome }} {{cliente.sobrenome}} 
+            <a href="{% url 'editar' cliente.id %}">editar</a>
+            <a href="{% url 'deletar' cliente.id %}">deletar</a>
+        </li>
 
         {% endfor %}
     </ul>
 
 
-    <form action={% url 'salvar' %} method="POST">
+    <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
         <input type="text" name="nome">
         <input type="text" name="sobrenome">
